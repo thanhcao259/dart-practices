@@ -1,0 +1,27 @@
+int switch_case_score(String letters){
+  int result = 0;
+  for (int i=0; i< letters.length; i++){
+    switch (letters[i].toUpperCase()){
+      case 'A'|| 'E'|| 'I'|| 'O'|| 'U'|| 'L'|| 'N'|| 'R'|| 'S'|| 'T':
+        print("Char ${letters[i]} = 1"); result +=1; 
+      case 'D'|| 'G':
+        print("Char ${letters[i]} = 2"); result +=2; 
+      case 'B'|| 'C'|| 'M'|| 'P':
+        print("Char ${letters[i]} = 3"); result +=3; 
+      case 'F'|| 'H'|| 'V'|| 'W'|| 'Y':
+        print("Char ${letters[i]} = 4"); result +=4; 
+      case 'K':
+        print("Char ${letters[i]} = 5"); result +=5; 
+      case 'J'|| 'X':
+        print("Char ${letters[i]} = 8"); result +=8; 
+      case 'Q'|| 'Z':
+        print("Char ${letters[i]} = 10"); result +=10; 
+      default: break;
+    }
+  } return result;
+}
+
+void main() {
+  final String letters = "HeLLo WoRld";
+  print(switch_case_score(letters));
+}
