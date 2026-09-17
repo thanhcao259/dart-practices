@@ -1,0 +1,43 @@
+const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+String transform(String text, bool addSpace){
+  var newText = '';
+  text = text.toLowerCase();  
+
+  for(var i=0; i < text.length; i++){
+    final char = text[i];
+    
+    // Keep digits 0-9 unchanged
+    if((char.codeUnitAt(0) >= '0'.codeUnitAt(0) && char.codeUnitAt(0) <= '9'.codeUnitAt(0))){
+      newText += char;
+      continue;
+    }
+
+    // Replace each letter with its reversed alphabet: a-z, b-y, c-x, ...
+    for(var j=0; j < alphabet.length; j++){
+      if(char == alphabet[j]){
+        newText += alphabet[alphabet.length - 1 - j];
+      }
+    }
+  } //return newText;
+
+  var result = '';
+  if(addSpace){
+    // Insert a whitespace after each 5 characters
+    late String tmp = '';
+    for(var i = 0; i < newText.length; i++){
+      result += newText[i];
+      if(i%5 == 4){
+        result += ' ';
+      }
+    }
+    return result.trim();
+  } return newText.trim();
+}
+
+String encode(String text){
+  return transform(text, true);
+}
+String decode(String text){
+  return transform(text, false);
+}
