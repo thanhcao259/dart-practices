@@ -1,18 +1,15 @@
 class EggCounter{
   void convertDecimalToBinary(int number){
-    var copiedNumber = number;
-    List<int> binary = [];
-    var result = '';
-    while(copiedNumber > 0){
-      var reminder = copiedNumber%2;
-      print('${copiedNumber} / 2 = ${copiedNumber ~/ 2}, reminder = ${reminder} ');
-      copiedNumber = copiedNumber ~/ 2;
-      binary.add(reminder);
+    List<int> reminders = [];
+    var binary = '';
+    while(number > 0){
+      reminders.add(number % 2);
+      number = number ~/ 2;
     }
     // Reverse the list to give a string binary
-    for(var i=binary.length - 1; i >= 0; i--){
-      result += binary[i].toString();
-    } print(result);
+    for(var i=reminders.length - 1; i >= 0; i--){
+      binary += reminders[i].toString();
+    } print(binary);
   }
 
   int count(int number){
@@ -26,7 +23,7 @@ class EggCounter{
 
 void main(){
   EggCounter egg = new EggCounter();
-  egg.convertDecimalToBinary(89);
-  print(egg.count(89));
+  egg.convertDecimalToBinary(8);
+  print(egg.count(8));
 
 }
